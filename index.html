@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>SysInfoApp</title>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+  </head>
+  <body>
+    <div class="container grid-lg" style="margin-top: 20px">
+      <div class="columns">
+        <div>  
+        <h3><strong>System Information</strong></h3>
+        <code id="code-content">
+          
+        </code>
+        </div>
+      </div>
+    </div>
+    <!-- You can also require other files to run in this process -->
+    <script src="./renderer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ua-parser-js@0/dist/ua-parser.min.js"></script>
+    <script>
+      var parser = new UAParser();
+      // by default it takes ua string from current browser's window.navigator.userAgent
+      console.log(parser.getResult());
+      document.getElementById('code-content').innerHTML = JSON.stringify(parser.getResult());
+    </script>
+  </body>
+</html>
